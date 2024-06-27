@@ -66280,16 +66280,80 @@ function yRe() {
             })
         })
     }) : l.jsx(be, {
+        noPadding: !0,
         title: "Nodes",
-        children: l.jsxs(wr, {
-            status: "warning",
-            children: [l.jsx(Sr, {}), "You need a license that supports Cluster.", l.jsx(Xt, {
-                href: "https://easypanel.io/pricing",
-                isExternal: !0,
-                color: "brand.500",
-                ml: 2,
-                children: "Learn more"
-            })]
+        action: l.jsxs("div", {
+            children: [l.jsx(He, {
+                "aria-label": "Reload",
+                onClick: ()=>{
+                    r.refetch()
+                }
+                ,
+                mr: 2,
+                icon: l.jsx(pe, {
+                    as: aP,
+                    w: "5",
+                    h: "5",
+                    opacity: "0.5"
+                })
+            }), l.jsx(gRe, {})]
+        }),
+        children: l.jsx(W3, {
+            mt: 4,
+            children: ((u = r.data) == null ? void 0 : u.length) && l.jsxs(Jx, {
+                variant: "simple",
+                children: [l.jsx(H3, {
+                    children: l.jsxs(rh, {
+                        children: [l.jsx(as, {
+                            children: "Hostname"
+                        }), l.jsx(as, {
+                            children: "Status"
+                        }), l.jsx(as, {
+                            children: "Availability"
+                        }), l.jsx(as, {
+                            children: "Manager Status"
+                        }), l.jsx(as, {
+                            children: "Engine Version"
+                        }), l.jsx(as, {
+                            children: "Actions"
+                        })]
+                    })
+                }), l.jsx(U3, {
+                    children: (c = r.data) == null ? void 0 : c.map(d=>{
+                        var h, p, g, v, y, S, b;
+                        return l.jsxs(rh, {
+                            children: [l.jsx(ss, {
+                                children: (h = d.Description) == null ? void 0 : h.Hostname
+                            }), l.jsx(ss, {
+                                children: (p = d.Status) == null ? void 0 : p.State
+                            }), l.jsx(ss, {
+                                children: (g = d.Spec) == null ? void 0 : g.Availability
+                            }), l.jsx(ss, {
+                                children: (v = d.ManagerStatus) == null ? void 0 : v.Reachability
+                            }), l.jsx(ss, {
+                                children: (S = (y = d.Description) == null ? void 0 : y.Engine) == null ? void 0 : S.EngineVersion
+                            }), l.jsx(ss, {
+                                children: l.jsx(Q, {
+                                    colorScheme: "red",
+                                    size: "sm",
+                                    isDisabled: ((b = r.data) == null ? void 0 : b.length) === 1,
+                                    onClick: async()=>{
+                                        await e({
+                                            title: "Remove Node",
+                                            confirmLabel: "Remove"
+                                        }) && a.mutate({
+                                            id: d.ID
+                                        })
+                                    }
+                                    ,
+                                    children: "Remove"
+                                })
+                            })]
+                        }, d.ID)
+                    }
+                    )
+                })]
+            })
         })
     })
 }
