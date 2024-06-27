@@ -88211,16 +88211,20 @@ function zDe({projectName: e, serviceName: t}) {
             }), l.jsx($n, {
                 name: "maintenance.hideLinks"
             })]
-        }) : l.jsxs(wr, {
-            status: "warning",
-            children: [l.jsx(Sr, {}), "For more customizations you need a license that supports custom branding.", l.jsx(Xt, {
-                href: "https://easypanel.io/pricing",
-                isExternal: !0,
-                color: "brand.500",
-                ml: 2,
-                children: "Learn more"
+        }) : l.jsxs(l.Fragment, {
+            children: [l.jsx(Or, {
+                name: "maintenance.customLogo",
+                helperText: "Use SVG or any HTML"
+            }), l.jsx(Or, {
+                name: "maintenance.customCss",
+                label: "Custom CSS",
+                helperText: "Custom CSS for the error pages."
+            }), l.jsx($n, {
+                name: "maintenance.hideLogo"
+            }), l.jsx($n, {
+                name: "maintenance.hideLinks"
             })]
-        })]
+        }))]
     })
 }
 const BDe = Ce("/_layout/projects/$project/_layout/app/$service/_layout/maintenance")({
