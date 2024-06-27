@@ -66484,16 +66484,7 @@ function CRe() {
             children: l.jsx(SRe, {})
         }) : l.jsx(be, {
             title: "Error Page",
-            children: l.jsxs(wr, {
-                status: "warning",
-                children: [l.jsx(Sr, {}), "You need a license that supports custom branding.", l.jsx(Xt, {
-                    href: "https://easypanel.io/pricing",
-                    isExternal: !0,
-                    color: "brand.500",
-                    ml: 2,
-                    children: "Learn more"
-                })]
-            })
+            children: l.jsx(SRe, {})
         })]
     })
 }
