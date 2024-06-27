@@ -65936,15 +65936,58 @@ function lRe() {
         })
     }) : l.jsx(be, {
         title: "Notification Channels",
-        children: l.jsxs(wr, {
-            status: "warning",
-            children: [l.jsx(Sr, {}), "You need a license that supports Notifications", l.jsx(Xt, {
-                href: "https://easypanel.io/pricing",
-                isExternal: !0,
-                color: "brand.500",
-                ml: 2,
-                children: "Learn more"
-            })]
+        action: l.jsx(N7, {
+            action: u.mutateAsync,
+            title: "Create Channel",
+            submitText: "Create",
+            trigger: l.jsx(Q, {
+                colorScheme: "brand",
+                ml: "auto",
+                size: "md",
+                children: "Add Channel"
+            })
+        }),
+        children: l.jsx($, {
+            divider: l.jsx(wh, {}),
+            spacing: "4",
+            children: (d = n.notificationChannels) == null ? void 0 : d.map(h=>l.jsxs(Ii, {
+                justifyContent: "space-between",
+                alignItems: "center",
+                children: [l.jsxs(me, {
+                    fontWeight: "bold",
+                    children: [h.name, " ", l.jsx(Tr, {
+                        colorScheme: "green",
+                        mr: 2,
+                        ml: 2,
+                        children: h.target.type
+                    })]
+                }), l.jsxs(me, {
+                    children: [l.jsx(N7, {
+                        action: c.mutateAsync,
+                        title: "Upate Channel",
+                        submitText: "Save",
+                        trigger: l.jsx(Q, {
+                            size: "sm",
+                            mr: 2,
+                            children: "Edit"
+                        }),
+                        initialValues: h
+                    }), l.jsx(Q, {
+                        colorScheme: "red",
+                        size: "sm",
+                        onClick: async()=>{
+                            await t({
+                                title: "Delete Channel",
+                                body: "Are you sure you want to delete this channel? The notifications that have this channel will stop working."
+                            }) && a.mutate({
+                                id: h.id
+                            })
+                        }
+                        ,
+                        children: "Remove"
+                    })]
+                })]
+            }, h.id))
         })
     }) : null
 }
